@@ -111,11 +111,17 @@ const check = (path, component, toCheck) => {
 };
 
 try {
-  check("", window, nodesToCheck);
+  if (typeof window !== "undefined") {
+    check("", window, nodesToCheck);
+  } else {
+    error = "window is not available (non-browser environment)";
+  }
 } catch (ex) {
   error = "" + ex;
 }
 
-export function getWebRtcApiHealth() {
+function getWebRtcApiHealth() {
   return { version, nonNative, missing, error };
 }
+
+module.exports = { getWebRtcApiHealth };

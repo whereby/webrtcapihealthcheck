@@ -1,4 +1,4 @@
-export function getWebRtcApiHealth(): {
+export declare function getWebRtcApiHealth(): {
   version: number;
   missing: string[];
   nonNative: string[];

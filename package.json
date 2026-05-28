@@ -1,6 +1,20 @@
 {
   "name": "@whereby.com/webrtcapihealthcheck",
   "version": "1.0.0",
-  "main": "index.ts",
-  "types": "index.d.ts"
+  "main": "./index.js",
+  "module": "./index.mjs",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs",
+      "require": "./index.js",
+      "default": "./index.js"
+    }
+  },
+  "files": [
+    "index.js",
+    "index.mjs",
+    "index.d.ts"
+  ]
 }
