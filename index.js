@@ -102,6 +102,11 @@ const check = (path, component, toCheck) => {
     if (f) {
       if (!/\[native code\]/g.test(component[f].toString?.() || "")) {
         nonNative.push(currentPath);
+      } else if (component[f].prototype?.constructor) {
+        // check for simple proxies not trying to hide
+        if (component[f].prototype.constructor !== component[f]) {
+          nonNative.push(currentPath);
+        }
       }
     }
     if (c) {
